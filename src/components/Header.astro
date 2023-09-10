@@ -1,0 +1,25 @@
+---
+import Link from './Link.astro';
+import ChevronLeft from '@icons/ChevronLeft.astro';
+
+const navigation = [
+	{ name: 'Projects', href: '/projects', command: 'cd ~ / projects' },
+	{ name: 'Experience', href: '/experience', command: 'cd ~ / experience' },
+	{ name: 'Writing', href: '/writing', command: 'cd ~ / writing' },
+];
+---
+
+<header>
+	<nav class="flex flex-col gap-y-8">
+		<slot />
+		
+		{
+			navigation.map((link) => (
+				<Link href={link.href} variant="secondary">
+					<ChevronLeft size={16} />
+					{link.command}
+				</Link>
+			))
+		}
+	</nav>
+</header>

@@ -1,29 +1,166 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from '@layouts/Layout.astro';
+import ChevronLeft from '@icons/ChevronLeft.astro';
+import ArrowUpRight from '@icons/ArrowUpRight.astro';
+import Link from '@components/Link.astro';
+import Header from '@components/Header.astro';
+
+type Section = {
+	name: string;
+	href: string;
+	command: string;
+	content: {
+		name: string;
+		href: string;
+		description: string;
+	}[];
+};
+
+const sections: Section[] = [
+	{
+		name: 'Projects',
+		href: '/projects',
+		command: 'cd ~ / projects',
+		content: [
+			{
+				name: 'Instrumus',
+				href: '/projects/instrumus',
+				description:
+					'Scientific instrumentation and testing services for businesses, students, and researchers in India.',
+			},
+			{
+				name: 'Javin',
+				href: '/projects/javin',
+				description:
+					'A rude chatbot that can generate a tech stack given a project description by a human.',
+			},
+			{
+				name: 'Musix',
+				href: '/projects/musix',
+				description:
+					'Stream music for a group while Musix handles song selection using music taste analysis and machine learning.',
+			},
+		],
+	},
+	{
+		name: 'Experience',
+		href: '/experience',
+		command: 'cd ~ / experience',
+		content: [
+			{
+				name: 'Infosys',
+				href: '/experience/infosys-ml-intern',
+				description:
+					'ML Intern @ Infosys.\n Building GANs to recolor images for CVD patients.',
+			},
+			{
+				name: 'Cyfirma',
+				href: '/experience/cyfirma-swe-intern',
+				description:
+					'SWE Intern @ Cyfirma.\n Building a data pipeline to ingest and process threat intelligence data.',
+			},
+			{
+				name: 'Pyebook',
+				href: '/experience/pyebook-swe-intern',
+				description:
+					'SWE Intern @ Pyebook.\n Building a web app to help students find the best books for their courses.',
+			},
+		],
+	},
+];
 ---
 
 <Layout title="Shlok Desai">
-	<main class="grid grid-cols-4 max-w-7xl mx-auto mt-20">
-		<div id="left">
-			<a href="/">
-				<span class="text-gray11 text-base tracking-wider">cd . .</span>
-			</a>
-		</div>
+	<main class="grid grid-cols-4 max-w-7xl gap-x-8 mx-auto pt-28 px-4">
+		<Header>
+			<Link href="/" variant="primary" className="mb-4">
+				<ChevronLeft size={16} />
+				 cd . .
+			</Link>
+		</Header>
 
 		<div id="main" class="col-span-2">
-			<h1 class="text-gray12 tracking-wide text-base">Shlok Desai</h1>
+			<h1 class="text-gray12 tracking-wider">Shlok Desai</h1>
 
-			<p class="text-gray12 mt-8 tracking-wider leading-relaxed font-light">
-				<i class="font-serif">
-					Software Engineer, Creative Thinker, Student, and Designer.
-				</i>
-				<br /><br />
-				 I love crafting interfaces that delight and building products that
-				solve problems. My interests also lie in the fields of big data,
-				distributed systems, and machine learning.
-				<br /><br />
-				 I have been building websites (frontend & backend) for almost 2 years.
+			<i
+				class="block font-serif tracking-wide italic text-gray12 mt-8 font-light"
+			>
+				Software Engineer, Creative Thinker, Student, and Designer.
+			</i>
+
+			<p class="text-gray12 mt-8 leading-relaxed font-light">
+				I craft interfaces that delight and build products that solve problems.
+				My technical interests also lie in the fields of big data, distributed
+				systems, and machine learning.
 			</p>
+
+			<div class="mt-10 space-y-10">
+				{
+					sections.map((section) => (
+						<div>
+							<span class="text-gray11 text-sm font-light">{section.name}</span>
+
+							<div class="grid grid-cols-3 gap-8 mt-6">
+								{section.content.map((item) => (
+									<div>
+										<Link href={item.href} variant="primary">
+											{item.name}
+										</Link>
+
+										<p class="mt-4 text-gray11 leading-relaxed font-light text-sm">
+											{item.description}
+										</p>
+									</div>
+								))}
+							</div>
+						</div>
+					))
+				}
+			</div>
+
+			<div class="mt-12">
+				<h2 class="text-gray12 font-light">Currently</h2>
+
+				<p class="text-gray12 mt-8 leading-relaxed font-light">
+					Studying{' '}
+					<i class="font-serif tracking-wide italic">
+						Computer Science, Data Science & Economics
+					</i>{' '}
+					 at the University of Wisconsin-Madison. Graduating Spring 2025. Hyper
+					focused on developing skill by exploring passion projects and
+					consuming knowledge.
+				</p>
+
+				<p class="text-gray12 mt-8 leading-relaxed font-light">
+					Recently, been getting into writing and sharing my thoughts on my blog.
+				</p>
+
+				<p class="text-gray12 font-light mt-8">
+					Upcoming hackathons I'm attending include{' '}
+
+					<Link
+						href="https://www.madhacks.io/"
+						variant="primary"
+						rel="noopener noreferrer"
+						target="_blank"
+					>
+						MadHacks
+						<ArrowUpRight size={16} />
+					</Link>
+
+					{' '}and{' '}
+
+					<Link
+						href="https://hack.uiowa.edu/"
+						variant="primary"
+						rel="noopener noreferrer"
+						target="_blank"
+					>
+						HackUIOWA
+						<ArrowUpRight size={16} />
+					</Link>
+				</p>
+			</div>
 		</div>
 
 		<div id="right"></div>

@@ -1,0 +1,27 @@
+---
+import clsx from 'clsx';
+
+interface Props {
+	href: string;
+	variant: 'primary' | 'secondary';
+  className?: string;
+  rel?: string;
+  target?: string;
+}
+
+const { href, variant, className, rel, target } = Astro.props;
+---
+
+<a
+	class={clsx(
+		'inline-flex items-center gap-x-1 border-b border-gray9 hover:border-gray11',
+		'hover:text-gray12 transition-colors w-fit tracking-wide font-light',
+		variant === 'primary' ? 'text-gray12 text-base' : 'text-gray11 text-sm',
+    className
+	)}
+	href={href}
+  rel={rel}
+  target={target}
+>
+  <slot />
+</a>
