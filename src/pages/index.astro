@@ -1,10 +1,10 @@
 ---
 import Layout from '@layouts/Layout.astro';
-import ChevronLeft from '@icons/ChevronLeft.astro';
 import ArrowUpRight from '@icons/ArrowUpRight.astro';
 import Link from '@components/Link.astro';
 import Header from '@components/Header.astro';
 import P from '@components/P.astro';
+import Menu from '@icons/Menu.astro';
 
 type Section = {
 	name: string;
@@ -73,15 +73,18 @@ const sections: Section[] = [
 
 <Layout title="Shlok Desai">
 	<div class="flex justify-center max-w-7xl gap-x-16 mx-auto px-4">
-		<Header>
-			<Link href="/" variant="primary">
-				<ChevronLeft size={16} />
-				 cd . .
-			</Link>
-		</Header>
+		<Header />
 
 		<div id="main" class="col-span-2 space-y-8 max-w-2xl">
-			<h1 class="text-gray12 tracking-wider">Shlok Desai</h1>
+			<div class="flex items-center justify-between">
+				<h1 class="text-gray12 tracking-wider">Shlok Desai</h1>
+				<a
+					class="hover:text-gray12 transition-colors w-fit text-gray12 xl:hidden"
+					href="/menu"
+				>
+					<Menu />
+				</a>
+			</div>
 
 			<i class="block font-serif tracking-wide italic text-gray12 font-light">
 				Software Engineer, Creative Thinker, Student, and Designer.
@@ -163,6 +166,6 @@ const sections: Section[] = [
 			</div>
 		</div>
 
-		<div class="w-40"></div>
+		<div class="w-40 hidden xl:block"></div>
 	</div>
 </Layout>
