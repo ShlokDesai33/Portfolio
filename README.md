@@ -23,6 +23,17 @@ Inside of this Astro project, you'll see the following folders and files:
 │   │   └── Layout.astro
 │   └── pages/
 │       └── index.astro
+|       └── menu.astro
+|       └── 404.astro
+|       └── projects/
+|           └── index.astro
+├── .gitignore
+├── .prettierrc
+├── README.md
+├── astro.config.mjs
+├── tailwind.config.js
+├── tsconfig.json
+├── package-lock.json
 └── package.json
 ```
 
@@ -45,6 +56,6 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-## 👀 Want to learn more?
+## 👀 API Reference?
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Check [Astro docs](https://docs.astro.build) for more information or jump into the [Discord server](https://astro.build/chat).
