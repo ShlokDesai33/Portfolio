@@ -5,6 +5,7 @@ import Link from '@components/Link.astro';
 import Header from '@components/Header.astro';
 import P from '@components/P.astro';
 import Menu from '@icons/Menu.astro';
+import Rocket from "@icons/Rocket.astro";
 
 type Section = {
 	name: string;
@@ -135,7 +136,12 @@ const sections: Section[] = [
 
 				<P>
 					Recently created a blog where I post tiny nuggets of information for
-					viewers and my future self.
+					viewers and my future self.{' '}
+					<span
+						class="inline-flex items-center gap-x-2"
+					>
+						Ship fast, fail fast. <Rocket size={16} />
+					</span>
 				</P>
 
 				<P>
