@@ -4,6 +4,7 @@ import ChevronLeft from '@icons/ChevronLeft.astro';
 import ArrowUpRight from '@icons/ArrowUpRight.astro';
 import Link from '@components/Link.astro';
 import Header from '@components/Header.astro';
+import P from '@components/P.astro';
 
 type Section = {
 	name: string;
@@ -32,7 +33,7 @@ const sections: Section[] = [
 				name: 'Javin',
 				href: '/projects/javin',
 				description:
-					'A rude chatbot that can generate a tech stack given a project description by a human.',
+					'Describe your project and this rude chatbot can generate a tech stack suitable for your needs instantly.',
 			},
 			{
 				name: 'Musix',
@@ -51,19 +52,19 @@ const sections: Section[] = [
 				name: 'Infosys',
 				href: '/experience/infosys-ml-intern',
 				description:
-					'ML Intern @ Infosys.\n Building GANs to recolor images for CVD patients.',
+					'ML Intern @ Infosys. Building GANs to recolor images for CVD patients.',
 			},
 			{
 				name: 'Cyfirma',
 				href: '/experience/cyfirma-swe-intern',
 				description:
-					'SWE Intern @ Cyfirma.\n Building a data pipeline to ingest and process threat intelligence data.',
+					'SWE Intern @ Cyfirma. Built a microservice to automate network scans (TCP & SYN), host detection, and ping sweeps.',
 			},
 			{
 				name: 'Pyebook',
 				href: '/experience/pyebook-swe-intern',
 				description:
-					'SWE Intern @ Pyebook.\n Building a web app to help students find the best books for their courses.',
+					'SWE Intern @ Pyebook. Developed a REST API and contributed to 3 new features for a web app written in Reactjs.',
 			},
 		],
 	},
@@ -71,30 +72,28 @@ const sections: Section[] = [
 ---
 
 <Layout title="Shlok Desai">
-	<main class="grid grid-cols-4 max-w-7xl gap-x-8 mx-auto pt-28 px-4">
+	<div class="flex justify-center max-w-7xl gap-x-16 mx-auto px-4">
 		<Header>
-			<Link href="/" variant="primary" className="mb-4">
+			<Link href="/" variant="primary">
 				<ChevronLeft size={16} />
 				 cd . .
 			</Link>
 		</Header>
 
-		<div id="main" class="col-span-2">
+		<div id="main" class="col-span-2 space-y-8 max-w-2xl">
 			<h1 class="text-gray12 tracking-wider">Shlok Desai</h1>
 
-			<i
-				class="block font-serif tracking-wide italic text-gray12 mt-8 font-light"
-			>
+			<i class="block font-serif tracking-wide italic text-gray12 font-light">
 				Software Engineer, Creative Thinker, Student, and Designer.
 			</i>
 
-			<p class="text-gray12 mt-8 leading-relaxed font-light">
+			<P>
 				I craft interfaces that delight and build products that solve problems.
 				My technical interests also lie in the fields of big data, distributed
 				systems, and machine learning.
-			</p>
+			</P>
 
-			<div class="mt-10 space-y-10">
+			<div class="pt-2 space-y-10">
 				{
 					sections.map((section) => (
 						<div>
@@ -118,10 +117,10 @@ const sections: Section[] = [
 				}
 			</div>
 
-			<div class="mt-12">
+			<div class="mt-12 space-y-8">
 				<h2 class="text-gray12 font-light">Currently</h2>
 
-				<p class="text-gray12 mt-8 leading-relaxed font-light">
+				<P>
 					Studying{' '}
 					<i class="font-serif tracking-wide italic">
 						Computer Science, Data Science & Economics
@@ -129,13 +128,14 @@ const sections: Section[] = [
 					 at the University of Wisconsin-Madison. Graduating Spring 2025. Hyper
 					focused on developing skill by exploring passion projects and
 					consuming knowledge.
-				</p>
+				</P>
 
-				<p class="text-gray12 mt-8 leading-relaxed font-light">
-					Recently, been getting into writing and sharing my thoughts on my blog.
-				</p>
+				<P>
+					Recently created a blog where I post tiny nuggets of information for
+					viewers and my future self.
+				</P>
 
-				<p class="text-gray12 font-light mt-8">
+				<P>
 					Upcoming hackathons I'm attending include{' '}
 
 					<Link
@@ -159,10 +159,10 @@ const sections: Section[] = [
 						HackUIOWA
 						<ArrowUpRight size={16} />
 					</Link>
-				</p>
+				</P>
 			</div>
 		</div>
 
-		<div id="right"></div>
-	</main>
+		<div class="w-40"></div>
+	</div>
 </Layout>
