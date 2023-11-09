@@ -1,6 +1,146 @@
 ---
 import Layout from '@layouts/Layout.astro';
+import Link from '@components/Link.astro';
+import ChevronLeft from '@icons/ChevronLeft.astro';
+
+type Project = {
+  name: string
+  url: string
+  redirect?: boolean
+  description: string
+}
+
+type Content = {
+  year: string | number,
+  projects: Project[]
+}
+
+const content: Content[] = [
+{
+    year: '---',
+    projects: [
+      {
+        name: 'React Component Library',
+        url: '#',
+        description: 'Coming Soon!'
+      }
+    ]
+  },
+  {
+    year: 2023,
+    projects: [
+      {
+        name: 'React OTP Input Field',
+        url: 'https://github.com/ShlokDesai33/React18-OTP-Input',
+        redirect: true,
+        description: 'Typescript, Reactjs, TailwindCSS'
+      },
+      {
+        name: 'The Equidistant',
+        url: 'https://github.com/TheEquidistantProject',
+        redirect: true,
+        description: 'Next.js, Python'
+      },
+      {
+        name: 'Javin',
+        url: 'https://devpost.com/software/javin',
+        redirect: true,
+        description: 'Next.js, Python, Neo4j'
+      },
+      {
+        name: 'Musix',
+        url: 'https://github.com/ShlokDesai33/Musix',
+        redirect: true,
+        description: 'Next.js, Python, MongoDB'
+      },
+      {
+        name: 'License Plate Detector',
+        url: 'https://github.com/ShlokDesai33/License-Plate-Detector',
+        redirect: true,
+        description: 'Jupyter, Tensorflow, Pandas, Matplotlib'
+      },
+      {
+        name: 'Parallel Sort',
+        url: 'https://github.com/ShlokDesai33/Parallel-Sort/blob/main/psort.c',
+        redirect: true,
+        description: 'C'
+      },
+      {
+        name: 'A Heap Memory Allocator',
+        url: 'https://github.com/ShlokDesai33/Heap-Memory-Allocator/blob/main/p3Heap.c',
+        redirect: true,
+        description: 'C'
+      },
+    ]
+  },
+  {
+    year: 2022,
+    projects: [
+      {
+        name: 'Instrumus',
+        url: '/projects/instrumus',
+        description: 'Node.js, Nextjs, Firestore, Algolia, AWS'
+      },
+      {
+        name: 'Demand Modeling for Satander Cycles',
+        url: 'https://github.com/ShlokDesai33/Satander-Cycles/blob/main/src.rmd',
+        redirect: true,
+        description: 'R'
+      }
+    ]
+  }
+]
 ---
 
 <Layout title="Shlok Desai | Projects">
+  <div class="flex justify-center max-w-7xl gap-x-16 mx-auto px-4">
+		<div class="w-40 hidden xl:block">
+      <Link href="/" variant="primary">
+        <ChevronLeft size={16} />
+        cd . .
+      </Link>
+    </div>
+
+		<div id="main" class="space-y-8 max-w-2xl w-full">
+			<div class="flex items-center justify-between">
+				<h1 class="text-gray12 tracking-wider">Projects</h1>
+
+        <Link href="/" variant="primary" className="xl:hidden">
+          <ChevronLeft size={16} />
+          cd . .
+        </Link>
+			</div>
+
+			<div class="pt-4">
+				{
+					content.map((item) => (
+						<div class="border-t border-gray4 flex w-full">
+              <div class="w-2/12">
+                <p class="text-gray11 leading-relaxed font-light mt-3">{item.year}</p>
+              </div>
+              <div class="w-10/12 divide-y divide-gray4">
+                {
+                  item.projects.map((project) => (
+                    <a 
+                      class="py-3 px-3 text-gray12 leading-relaxed font-light hover:bg-gray3 flex items-center justify-between shrink-0"
+                      href={project.url}
+                      rel={project.redirect ? "noopener noreferrer" : null}
+                      target={project.redirect ? "_blank" : null}
+                    >
+                      {project.name}
+                      <span class="text-gray11 text-sm truncate">
+                        {project.description}
+                      </span>
+                    </a>
+                  ))
+                }
+              </div>
+            </div>
+					))
+				}
+			</div>
+		</div>
+
+		<div class="w-40 hidden xl:block"></div>
+	</div>
 </Layout>

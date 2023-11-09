@@ -1,9 +1,43 @@
 ---
+import Link from '@components/Link.astro';
+import ChevronLeft from '@icons/ChevronLeft.astro';
 import Layout from '@layouts/Layout.astro';
+
+const navigation = [
+	{ name: 'Projects', href: '/projects', command: 'cd ~ / projects' },
+	{ name: 'Experience', href: '/experience', command: 'cd ~ / experience' },
+	{ name: 'Tech Stack', href: '/tech-stack', command: 'cd ~ / tech-stack' },
+];
 ---
 
 <Layout title="Shlok Desai | 404">
-  <div class="flex flex-col items-center justify-center text-gray12">
-    <h1 class="text-4xl font-bold">404</h1>
-  </div>
+  <div class="flex justify-center max-w-7xl gap-x-16 mx-auto px-4">
+    <div class="w-40 hidden xl:block"></div>
+
+		<div id="main" class="max-w-2xl w-full">
+			<h1 class="text-gray12 tracking-wider">404</h1>
+
+      <p class="text-gray11 leading-relaxed font-light text-sm mt-1 mb-8">
+        Page not found. Here are some helpful links:
+      </p>
+
+      <nav class="flex flex-col gap-y-8">
+        <Link href="/" variant="primary">
+          <ChevronLeft size={16} />
+          cd ~ /
+        </Link>
+      
+        {
+          navigation.map((link) => (
+            <Link href={link.href} variant="secondary">
+              <ChevronLeft size={16} />
+              {link.command}
+            </Link>
+          ))
+        }
+	    </nav>
+		</div>
+
+		<div class="w-40 hidden xl:block"></div>
+	</div>
 </Layout>
