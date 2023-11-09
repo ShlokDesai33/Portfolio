@@ -51,6 +51,6 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-## 👀 API Reference?
+## 👀 API Reference
 
 Check [Astro docs](https://docs.astro.build) for more information or jump into the [Discord server](https://astro.build/chat).
