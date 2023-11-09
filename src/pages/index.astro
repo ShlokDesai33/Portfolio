@@ -14,6 +14,7 @@ type Section = {
 	content: {
 		name: string;
 		href: string;
+		redirect?: boolean
 		description: string;
 	}[];
 };
@@ -31,16 +32,17 @@ const sections: Section[] = [
 					'Scientific instrumentation and testing services for businesses, students, and researchers in India.',
 			},
 			{
+				name: 'The Equidistant',
+				href: 'https://github.com/TheEquidistantProject',
+				redirect: true,
+				description:
+					'A news site that absorbs information from left and right wing news agencies to deliver factual unbiased information.',
+			},
+			{
 				name: 'Javin',
 				href: '/projects/javin',
 				description:
 					'Describe your project and this rude chatbot can generate a tech stack suitable for your needs instantly.',
-			},
-			{
-				name: 'Musix',
-				href: '/projects/musix',
-				description:
-					'Stream music for a group while Musix handles song selection using music taste analysis and machine learning.',
 			},
 		],
 	},
@@ -76,11 +78,11 @@ const sections: Section[] = [
 	<div class="flex justify-center max-w-7xl gap-x-16 mx-auto px-4">
 		<Header />
 
-		<div id="main" class="col-span-2 space-y-8 max-w-2xl">
+		<div id="main" class="space-y-8 max-w-2xl">
 			<div class="flex items-center justify-between">
 				<h1 class="text-gray12 tracking-wider">Shlok Desai</h1>
 				<a
-					class="hover:text-gray12 transition-colors w-fit text-gray12 xl:hidden"
+					class="hover:text-gray12 transition-colors w-fit text-gray11 xl:hidden"
 					href="/menu"
 				>
 					<Menu />
@@ -106,8 +108,9 @@ const sections: Section[] = [
 							<div class="grid grid-cols-3 gap-8 mt-6">
 								{section.content.map((item) => (
 									<div>
-										<Link href={item.href} variant="primary">
+										<Link href={item.href} variant="primary" redirect={item.redirect}>
 											{item.name}
+											{item.redirect && <ArrowUpRight size={16} />}
 										</Link>
 
 										<p class="mt-4 text-gray11 leading-relaxed font-light text-sm">
@@ -135,39 +138,11 @@ const sections: Section[] = [
 				</P>
 
 				<P>
-					Recently created a blog where I post tiny nuggets of information for
-					viewers and my future self.{' '}
 					<span
 						class="inline-flex items-center gap-x-2"
 					>
 						Ship fast, fail fast. <Rocket size={16} />
 					</span>
-				</P>
-
-				<P>
-					Upcoming hackathons I'm attending include{' '}
-
-					<Link
-						href="https://www.madhacks.io/"
-						variant="primary"
-						rel="noopener noreferrer"
-						target="_blank"
-					>
-						MadHacks
-						<ArrowUpRight size={16} />
-					</Link>
-
-					{' '}and{' '}
-
-					<Link
-						href="https://hack.uiowa.edu/"
-						variant="primary"
-						rel="noopener noreferrer"
-						target="_blank"
-					>
-						HackUIOWA
-						<ArrowUpRight size={16} />
-					</Link>
 				</P>
 			</div>
 		</div>

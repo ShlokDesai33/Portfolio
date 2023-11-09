@@ -7,9 +7,10 @@ interface Props {
   className?: string;
   rel?: string;
   target?: string;
+	redirect?: boolean
 }
 
-const { href, variant, className, rel, target } = Astro.props;
+const { href, variant, className, rel, target, redirect } = Astro.props;
 ---
 
 <a
@@ -20,8 +21,8 @@ const { href, variant, className, rel, target } = Astro.props;
     className
 	)}
 	href={href}
-  rel={rel}
-  target={target}
+  rel={redirect ? "noopener noreferrer" : rel}
+  target={redirect ? "_blank" : target}
 >
   <slot />
 </a>
