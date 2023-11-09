@@ -1,27 +1,26 @@
 ---
-import Link from './Link.astro';
-import ChevronLeft from '@icons/ChevronLeft.astro';
+import Link from "./Link.astro";
+import ChevronLeft from "@icons/ChevronLeft.astro";
 
 const navigation = [
-	{ name: 'Projects', href: '/projects', command: 'cd ~ / projects' },
-	{ name: 'Experience', href: '/experience', command: 'cd ~ / experience' },
-	// { name: 'Tech Stack', href: '/tech-stack', command: 'cd ~ / tech-stack' },
+  { name: "Projects", href: "/projects", command: "cd ~ / projects" },
+  { name: "Experience", href: "/experience", command: "cd ~ / experience" },
 ];
 ---
 
 <header class="hidden xl:block">
-	<nav class="flex flex-col gap-y-14 w-40">
-		<slot />
+  <nav class="flex flex-col gap-y-14 w-40">
+    <slot />
 
-		<div class="flex flex-col gap-y-8">
-			{
-				navigation.map((link) => (
-					<Link href={link.href} variant="secondary">
-						<ChevronLeft size={16} />
-						{link.command}
-					</Link>
-				))
-			}
-		</div>
-	</nav>
+    <div class="flex flex-col gap-y-8">
+      {
+        navigation.map((link) => (
+          <Link href={link.href} variant="secondary">
+            <ChevronLeft size={16} />
+            {link.command}
+          </Link>
+        ))
+      }
+    </div>
+  </nav>
 </header>

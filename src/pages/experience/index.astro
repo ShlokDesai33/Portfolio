@@ -1,115 +1,116 @@
 ---
-import Layout from '@layouts/Layout.astro';
-import Link from '@components/Link.astro';
-import ChevronLeft from '@icons/ChevronLeft.astro';
+import Layout from "@layouts/Layout.astro";
+import Link from "@components/Link.astro";
+import ChevronLeft from "@icons/ChevronLeft.astro";
 
 type Experience = {
-  jobTitle: string
-  url: string
-  companyName: string
-}
+  jobTitle: string;
+  url: string;
+  companyName: string;
+};
 
 type Content = {
-  year: number,
-  experiences: Experience[]
-}
+  year: number;
+  experiences: Experience[];
+};
 
 const content: Content[] = [
   {
     year: 2023,
     experiences: [
       {
-        jobTitle: 'Machine Learning Intern',
-        url: '/experience/infosys-ml-intern',
-        companyName: 'Infosys'
+        jobTitle: "Machine Learning Intern",
+        url: "/experience/infosys-ml-intern",
+        companyName: "Infosys",
       },
       {
-        jobTitle: 'Peer Mentor (CS 544 - Big Data Systems)',
-        url: '/experience/peer-mentor-cs544',
-        companyName: 'UW-Madison'
+        jobTitle: "Peer Mentor (CS 544 - Big Data Systems)",
+        url: "/experience/peer-mentor-cs544",
+        companyName: "UW-Madison",
       },
       {
-        jobTitle: 'Academic Mentor (CS 400 - Programming II)',
-        url: '/experience/academic-mentor-cs400',
-        companyName: 'UW-Madison'
+        jobTitle: "Academic Mentor (CS 400 - Programming II)",
+        url: "/experience/academic-mentor-cs400",
+        companyName: "UW-Madison",
       },
       {
-        jobTitle: 'Executive Board Member',
-        url: '/experience/jyi-executive-board-member',
-        companyName: 'Journal of Young Investigators'
+        jobTitle: "Executive Board Member",
+        url: "/experience/jyi-executive-board-member",
+        companyName: "Journal of Young Investigators",
       },
-    ]
+    ],
   },
   {
     year: 2022,
     experiences: [
       {
-        jobTitle: 'Software Engineer Intern',
-        url: '/experience/cyfirma-swe-intern',
-        companyName: 'Cyfirma'
+        jobTitle: "Software Engineer Intern",
+        url: "/experience/cyfirma-swe-intern",
+        companyName: "Cyfirma",
       },
-    ]
+    ],
   },
   {
     year: 2021,
     experiences: [
       {
-        jobTitle: 'Software Engineer Intern',
-        url: '/experience/pyebook-swe-intern',
-        companyName: 'Pyebook'
+        jobTitle: "Software Engineer Intern",
+        url: "/experience/pyebook-swe-intern",
+        companyName: "Pyebook",
       },
-    ]
-  }
-]
+    ],
+  },
+];
 ---
 
 <Layout title="Shlok Desai | experiences">
   <div class="flex justify-center max-w-7xl gap-x-16 mx-auto px-4">
-		<div class="w-40 hidden xl:block">
+    <div class="w-40 hidden xl:block">
       <Link href="/" variant="primary">
         <ChevronLeft size={16} />
-        cd . .
+         cd . .
       </Link>
     </div>
 
-		<div id="main" class="space-y-8 max-w-2xl w-full">
-			<div class="flex items-center justify-between">
-				<h1 class="text-gray12 tracking-wider">Experience</h1>
+    <div id="main" class="space-y-8 max-w-2xl w-full">
+      <div class="flex items-center justify-between">
+        <h1 class="text-gray12 tracking-wider">Experience</h1>
 
         <Link href="/" variant="primary" className="xl:hidden">
           <ChevronLeft size={16} />
-          cd . .
+           cd . .
         </Link>
-			</div>
+      </div>
 
-			<div class="pt-4">
-				{
-					content.map((item) => (
-						<div class="border-t border-gray4 flex w-full">
+      <div class="pt-4">
+        {
+          content.map((item) => (
+            <div class="border-t border-gray4 flex w-full">
               <div class="w-2/12">
-                <p class="text-gray11 leading-relaxed font-light mt-3">{item.year}</p>
+                <p class="text-gray11 leading-relaxed font-light mt-3">
+                  {item.year}
+                </p>
               </div>
               <div class="w-10/12 divide-y divide-gray4">
-                {
-                  item.experiences.map((project) => (
-                    <a 
-                      class="py-3 px-3 text-gray12 leading-relaxed font-light hover:bg-gray3 flex items-center justify-between shrink-0"
-                      href={project.url}
-                    >
-                      {project.jobTitle}
-                      <span class="text-gray11 text-sm truncate">
-                        {project.companyName}
-                      </span>
-                    </a>
-                  ))
-                }
+                {item.experiences.map((project) => (
+                  <a
+                    class="py-3 px-3 text-gray12 leading-relaxed font-light 
+                          hover:bg-gray3 flex items-center justify-between shrink-0"
+                    href={project.url}
+                  >
+                    {project.jobTitle}
+                    <span class="text-gray11 text-sm truncate">
+                      {project.companyName}
+                    </span>
+                  </a>
+                ))}
               </div>
             </div>
-					))
-				}
-			</div>
-		</div>
+          ))
+        }
+      </div>
+    </div>
 
-		<div class="w-40 hidden xl:block"></div>
-	</div>
+    <div class="w-40 hidden xl:block"></div>
+  </div>
 </Layout>

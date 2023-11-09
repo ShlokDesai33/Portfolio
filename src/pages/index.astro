@@ -1,154 +1,155 @@
 ---
-import Layout from '@layouts/Layout.astro';
-import ArrowUpRight from '@icons/ArrowUpRight.astro';
-import Link from '@components/Link.astro';
-import Header from '@components/Header.astro';
-import P from '@components/P.astro';
-import Menu from '@icons/Menu.astro';
+import Layout from "@layouts/Layout.astro";
+import ArrowUpRight from "@icons/ArrowUpRight.astro";
+import Link from "@components/Link.astro";
+import Header from "@components/Header.astro";
+import P from "@components/P.astro";
+import Menu from "@icons/Menu.astro";
 import Rocket from "@icons/Rocket.astro";
 
 type Section = {
-	name: string;
-	href: string;
-	command: string;
-	content: {
-		name: string;
-		href: string;
-		redirect?: boolean
-		description: string;
-	}[];
+  name: string;
+  href: string;
+  command: string;
+  content: {
+    name: string;
+    href: string;
+    redirect?: boolean;
+    description: string;
+  }[];
 };
 
 const sections: Section[] = [
-	{
-		name: 'Projects',
-		href: '/projects',
-		command: 'cd ~ / projects',
-		content: [
-			{
-				name: 'Instrumus',
-				href: '/projects/instrumus',
-				description:
-					'Scientific instrumentation and testing services for businesses, students, and researchers in India.',
-			},
-			{
-				name: 'The Equidistant',
-				href: 'https://github.com/TheEquidistantProject',
-				redirect: true,
-				description:
-					'A news site that absorbs information from left and right wing news agencies to deliver factual unbiased information.',
-			},
-			{
-				name: 'Javin',
-				href: 'https://devpost.com/software/javin',
-				redirect: true,
-				description:
-					'Describe your project and this rude chatbot can generate a tech stack suitable for your needs instantly.',
-			},
-
-		],
-	},
-	{
-		name: 'Experience',
-		href: '/experience',
-		command: 'cd ~ / experience',
-		content: [
-			{
-				name: 'Infosys',
-				href: '/experience/infosys-ml-intern',
-				description:
-					'ML Intern @ Infosys. Building GANs to recolor images for CVD patients.',
-			},
-			{
-				name: 'Cyfirma',
-				href: '/experience/cyfirma-swe-intern',
-				description:
-					'SWE Intern @ Cyfirma. Built a microservice to automate network scans (TCP & SYN), host detection, and ping sweeps.',
-			},
-			{
-				name: 'Pyebook',
-				href: '/experience/pyebook-swe-intern',
-				description:
-					'SWE Intern @ Pyebook. Developed a REST API and contributed to 3 new features for a web app written in Reactjs.',
-			},
-		],
-	},
+  {
+    name: "Projects",
+    href: "/projects",
+    command: "cd ~ / projects",
+    content: [
+      {
+        name: "Instrumus",
+        href: "/projects/instrumus",
+        description:
+          "Scientific instrumentation and testing services for businesses, students, and researchers in India.",
+      },
+      {
+        name: "The Equidistant",
+        href: "https://github.com/TheEquidistantProject",
+        redirect: true,
+        description:
+          "A news site that absorbs information from left and right wing news agencies to deliver factual unbiased information.",
+      },
+      {
+        name: "Javin",
+        href: "https://devpost.com/software/javin",
+        redirect: true,
+        description:
+          "Describe your project and this rude chatbot can generate a tech stack suitable for your needs instantly.",
+      },
+    ],
+  },
+  {
+    name: "Experience",
+    href: "/experience",
+    command: "cd ~ / experience",
+    content: [
+      {
+        name: "Infosys",
+        href: "/experience/infosys-ml-intern",
+        description:
+          "ML Intern @ Infosys. Building GANs to recolor images for CVD patients.",
+      },
+      {
+        name: "Cyfirma",
+        href: "/experience/cyfirma-swe-intern",
+        description:
+          "SWE Intern @ Cyfirma. Built a microservice to automate network scans (TCP & SYN), host detection, and ping sweeps.",
+      },
+      {
+        name: "Pyebook",
+        href: "/experience/pyebook-swe-intern",
+        description:
+          "SWE Intern @ Pyebook. Developed a REST API and contributed to 3 new features for a web app written in Reactjs.",
+      },
+    ],
+  },
 ];
 ---
 
 <Layout title="Shlok Desai">
-	<div class="flex justify-center max-w-7xl gap-x-16 mx-auto px-4">
-		<Header />
+  <div class="flex justify-center max-w-7xl gap-x-16 mx-auto px-4">
+    <Header />
 
-		<div id="main" class="space-y-8 max-w-2xl">
-			<div class="flex items-center justify-between">
-				<h1 class="text-gray12 tracking-wider">Shlok Desai</h1>
-				<a
-					class="hover:text-gray12 transition-colors w-fit text-gray11 xl:hidden"
-					href="/menu"
-				>
-					<Menu />
-				</a>
-			</div>
+    <div id="main" class="space-y-8 max-w-2xl">
+      <div class="flex items-center justify-between">
+        <h1 class="text-gray12 tracking-wider">Shlok Desai</h1>
+        <a
+          class="hover:text-gray12 transition-colors w-fit text-gray11 xl:hidden"
+          href="/menu"
+        >
+          <Menu />
+        </a>
+      </div>
 
-			<i class="block font-serif tracking-wide italic text-gray12 font-light">
-				Software Engineer, Creative Thinker, Student, and Designer.
-			</i>
+      <i class="block font-serif tracking-wide italic text-gray12 font-light">
+        Software Engineer, Creative Thinker, Student, and Designer.
+      </i>
 
-			<P>
-				I craft interfaces that delight and build products that solve problems.
-				My technical interests also lie in the fields of big data, distributed
-				systems, and machine learning.
-			</P>
+      <P>
+        I craft interfaces that delight and build products that solve problems.
+        My technical interests also lie in the fields of big data, distributed
+        systems, and machine learning.
+      </P>
 
-			<div class="pt-2 space-y-10">
-				{
-					sections.map((section) => (
-						<div>
-							<span class="text-gray11 text-sm font-light">{section.name}</span>
+      <div class="pt-2 space-y-10">
+        {
+          sections.map((section) => (
+            <div>
+              <span class="text-gray11 text-sm font-light">{section.name}</span>
 
-							<div class="grid grid-cols-3 gap-8 mt-6">
-								{section.content.map((item) => (
-									<div>
-										<Link href={item.href} variant="primary" redirect={item.redirect}>
-											{item.name}
-											{item.redirect && <ArrowUpRight size={16} />}
-										</Link>
+              <div class="grid grid-cols-3 gap-8 mt-6">
+                {section.content.map((item) => (
+                  <div>
+                    <Link
+                      href={item.href}
+                      variant="primary"
+                      redirect={item.redirect}
+                    >
+                      {item.name}
+                      {item.redirect && <ArrowUpRight size={16} />}
+                    </Link>
 
-										<p class="mt-4 text-gray11 leading-relaxed font-light text-sm">
-											{item.description}
-										</p>
-									</div>
-								))}
-							</div>
-						</div>
-					))
-				}
-			</div>
+                    <p class="mt-4 text-gray11 leading-relaxed font-light text-sm">
+                      {item.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))
+        }
+      </div>
 
-			<div class="mt-12 space-y-8">
-				<h2 class="text-gray12 font-light">Currently</h2>
+      <div class="mt-12 space-y-8">
+        <h2 class="text-gray12 font-light">Currently</h2>
 
-				<P>
-					Studying{' '}
-					<i class="font-serif tracking-wide italic">
-						Computer Science, Data Science & Economics
-					</i>{' '}
-					 at the University of Wisconsin-Madison. Graduating Spring 2025. Hyper
-					focused on developing skill by exploring passion projects and
-					consuming knowledge.
-				</P>
+        <P>
+          Studying{" "}
+          <i class="font-serif tracking-wide italic">
+            Computer Science, Data Science & Economics
+          </i>{" "}
+           at the University of Wisconsin-Madison. Graduating Spring 2025. Hyper
+          focused on developing skill by exploring passion projects and
+          consuming knowledge.
+        </P>
 
-				<P>
-					<span
-						class="inline-flex items-center gap-x-2"
-					>
-						Ship fast, fail fast. <Rocket size={16} />
-					</span>
-				</P>
-			</div>
-		</div>
+        <P>
+          <span class="inline-flex items-center gap-x-2">
+            Ship fast, fail fast. <Rocket size={16} />
+          </span>
+        </P>
+      </div>
+    </div>
 
-		<div class="w-40 hidden xl:block"></div>
-	</div>
+    <div class="w-40 hidden xl:block"></div>
+  </div>
 </Layout>
