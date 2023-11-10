@@ -1,6 +1,5 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import Link from "@components/Link.astro";
 import ChevronLeft from "@icons/ChevronLeft.astro";
 
 type Project = {
@@ -95,20 +94,30 @@ const content: Content[] = [
 <Layout title="Shlok Desai | Projects">
   <div class="flex justify-center max-w-7xl gap-x-16 mx-auto px-4">
     <div class="w-40 hidden xl:block">
-      <Link href="/" variant="primary">
+      <button
+        onclick="history.back();"
+        class="inline-flex items-center gap-x-1 border-b border-gray9
+              hover:border-gray11 hover:text-gray12 transition-colors w-fit
+              tracking-wide font-light text-gray12 text-base"
+      >
         <ChevronLeft size={16} />
          cd . .
-      </Link>
+      </button>
     </div>
 
     <div id="main" class="space-y-8 max-w-2xl w-full">
       <div class="flex items-center justify-between">
         <h1 class="text-gray12 tracking-wider">Projects</h1>
 
-        <Link href="/" variant="primary" className="xl:hidden">
+        <button
+          onclick="history.back();"
+          class="inline-flex items-center gap-x-1 border-b border-gray9
+              hover:border-gray11 hover:text-gray12 transition-colors w-fit
+              tracking-wide font-light text-gray12 text-base xl:hidden"
+        >
           <ChevronLeft size={16} />
            cd . .
-        </Link>
+        </button>
       </div>
 
       <div class="pt-4">

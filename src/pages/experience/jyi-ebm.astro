@@ -1,0 +1,92 @@
+---
+import ChevronLeft from "@icons/ChevronLeft.astro";
+import Layout from "@layouts/Layout.astro";
+import P from "@components/P.astro";
+---
+
+<Layout title="Shlok Desai | Executive Board Member @ JYI">
+  <div class="flex justify-center max-w-7xl gap-x-16 mx-auto px-4">
+    <div class="w-40 hidden xl:block">
+      <button
+        onclick="history.back();"
+        class="inline-flex items-center gap-x-1 border-b border-gray9
+              hover:border-gray11 hover:text-gray12 transition-colors w-fit
+              tracking-wide font-light text-gray12 text-base"
+      >
+        <ChevronLeft size={16} />
+         cd . .
+      </button>
+    </div>
+
+    <div id="main" class="max-w-2xl w-full">
+      <div class="flex items-center justify-between">
+        <h1 class="text-gray12 tracking-wider">
+          Executive Board Member{" "}
+          <span class="text-gray11 font-light">@ JYI</span>
+        </h1>
+
+        <button
+          onclick="history.back();"
+          class="inline-flex items-center gap-x-1 border-b border-gray9
+              hover:border-gray11 hover:text-gray12 transition-colors w-fit
+              tracking-wide font-light text-gray12 text-base xl:hidden"
+        >
+          <ChevronLeft size={16} />
+           cd . .
+        </button>
+      </div>
+
+      <span class="text-gray11 font-light text-sm mt-4 block">
+        Remote • 04/2023 - Present
+      </span>
+
+      <P className="mt-8">
+        As the first peer-reviewed undergraduate journal dedicated to
+        international science scholarship, The Journal of Young Investigators
+        engages students in research, publishing, and creative science
+        communication while fostering a culture of personal and professional
+        development. JYI draws its staff from around the world and maintains a
+        network of experienced mentors who provide in-depth advice throughout
+        the scientific writing and reviewing processes
+      </P>
+
+      <P className="mt-4">
+        As Chief Technology Officer, I am responsible for the technological
+        direction and resources of the Journal of Young Investigators. This
+        includes overseeing and executing JYI's short and long-term technical
+        goals, and the management of department staff and organizational
+        technology needs. I also meet regularly with the Executive Board to
+        demonstrate progress and vote on organizational decisions, provide
+        regular reports to Executive Board and Board of Directors, and maintain
+        my position handbook and other resources.
+      </P>
+
+      <P className="mt-8">Responsibilites:</P>
+
+      <ul class="mt-4 list-disc text-gray11">
+        <li>
+          <P>
+            Leading the technology department of JYI, providing a vision for its
+            future and establishing, planning, and executing requisite goals.
+          </P>
+        </li>
+        <li>
+          <P>
+            Maintaining and updating JYI's website, web applications, staff
+            tools, and other technology resources.
+          </P>
+        </li>
+        <li>
+          <P>
+            Managing JYI's technology department which includes Software
+            Engineers, Development Officers, and others.
+          </P>
+        </li>
+      </ul>
+
+      <div class="pt-4"></div>
+    </div>
+
+    <div class="w-40 hidden xl:block"></div>
+  </div>
+</Layout>
